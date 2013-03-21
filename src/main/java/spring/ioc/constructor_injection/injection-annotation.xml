@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:context="http://www.springframework.org/schema/context"
+       xmlns:util="http://www.springframework.org/schema/util"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans
+       http://www.springframework.org/schema/beans/spring-beans.xsd
+       http://www.springframework.org/schema/context
+       http://www.springframework.org/schema/context/spring-context-3.1.xsd http://www.springframework.org/schema/util http://www.springframework.org/schema/util/spring-util.xsd">
+      <context:annotation-config/> <!--告诉Spring从代码库里查找依赖-->
+      <context:component-scan base-package="spring.ioc">
+          <!--annotation/aspectj/assignable/custom/regex-->
+          <context:exclude-filter type="assignable" expression="spring.ioc.set_injection.StandardOutMessageRender"/>
+        <!-- <context:include-filter type="assignable" expression=""/>-->
+      </context:component-scan>
+
+
+      <util:map id="map" map-class="java.util.HashMap">
+          <entry key="aa">
+              <value>111</value>
+          </entry>
+          <entry key="bb">
+              <value>33</value>
+          </entry>
+      </util:map>
+      
+     <util:list id="list">
+         <value>111</value>
+         <value>222</value>
+     </util:list>
+    
+     <util:set id="set">
+         <value>444</value>
+         <value>666</value>
+     </util:set>
+
+    <util:properties id="props">
+        <prop key="aa" >11</prop>
+        <prop key="bb">222</prop>
+    </util:properties>
+</beans>

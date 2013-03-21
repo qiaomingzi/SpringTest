@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans 
+       http://www.springframework.org/schema/beans/spring-beans.xsd">
+    <bean name="messageProvider" class="spring.ioc.set_injection.HelloWorldMessageProvider"/>
+     <bean name="messageRender" class="spring.ioc.constructor_injection.StandardOutMessageRender">
+          <constructor-arg>
+              <ref bean="messageProvider"/>
+          </constructor-arg>
+          <property name="name" value="lmz"/>
+          <property name="list">
+              <list>
+                    <value>value1</value>
+                    <value>value2</value>
+                    <value>value3</value>
+              </list>
+          </property>
+          <property name="map">
+              <map>
+                  <entry key="a">
+                      <value>aaaa</value>
+                  </entry>
+                  <entry key="b">
+                      <value>bbbb</value>
+                  </entry>
+              </map>
+          </property>
+          <property name="set">
+              <set>
+                  <value>11</value>
+                  <value>22</value>
+              </set>
+          </property>
+         <property name="props">
+             <props>
+                 <prop key="aa">aaa</prop>
+                 <prop key="bb">bb</prop>
+             </props>
+         </property>
+     </bean>
+</beans>
